@@ -36,6 +36,9 @@ class AppointmentController {
   }
 
   async store(req, res) {
+    // TODO: Validate: Check if date is a valid date
+    // TODO: Validate: User do not create appointment to yourself
+
     const schema = Yup.object().shape({
       provider_id: Yup.number().required(),
       date: Yup.date().required(),
@@ -105,7 +108,7 @@ class AppointmentController {
     );
 
     await Notification.create({
-      content: `New appointment of ${user.name} to ${formattedDate}`,
+      content: `Novo agendamento de ${user.name} para o ${formattedDate}`,
       user: provider_id,
     });
 
