@@ -10,6 +10,10 @@ class ScheduleController {
     //   where: { id: req.userId, provider: true },
     // });
 
+    if (!req.userId) {
+      return res.status(401).json({ error: 'User problem.' });
+    }
+
     const checkUserProvider = await User.isProvider(req.userId);
 
     if (!checkUserProvider) {
