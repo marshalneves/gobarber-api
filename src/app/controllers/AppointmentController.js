@@ -49,9 +49,11 @@ class AppointmentController {
      * Check if provider_id is a provider
      */
 
-    const checkIsProvider = await User.findOne({
-      where: { id: provider_id, provider: true },
-    });
+    // const checkIsProvider = await User.findOne({
+    //   where: { id: provider_id, provider: true },
+    // });
+
+    const checkIsProvider = await User.isProvider(provider_id);
 
     if (!checkIsProvider) {
       return res
