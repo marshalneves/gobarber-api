@@ -35,9 +35,9 @@ class ScheduleController {
         {
           model: User,
           as: 'user',
-          attributes:['name'],
-        }
-      ]
+          attributes: ['name'],
+        },
+      ],
       order: ['date'],
     });
 
